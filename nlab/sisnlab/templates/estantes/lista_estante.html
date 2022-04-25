@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista das Estante
+{% endblock title %}
+
+{{% block content %}
+ <h4><strong>DADOS DO ESTANTE</strong></h4>
+<div class="card">
+    <div class="card-header">     
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Usuário: {{armario.usuario|default_if_none:"--"}}</h5>  
+        <h5 class="card-title">Nome: {{estante.nome|default_if_none:"--"}}</h5>  
+        <h5 class="card-title">Sibla: {{estante.sibla|default_if_none:"--"}}</h5>  
+        <h5 class="card-title">Tombo: {{estante.tombo|default_if_none:"--"}}</h5>  
+        <h5 class="card-title">Sala: {{estante.sala|default_if_none:"--"}}</h5>  
+        <h5 class="card-title">Observações: {{estante.obs}}</h5>
+
+    </div>
+</div>
+
+{% endblock content %}

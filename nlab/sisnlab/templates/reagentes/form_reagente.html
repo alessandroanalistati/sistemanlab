@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de REAGENTE
+{% endblock title %}
+
+{% block content %}
+<h4><strong>CADASTRAR PRODUTO </strong></h4>
+<form method="post" enctype="multipart/form-data" id="reagentesForm"
+    data-armarios-url="{% url 'sisnlab:ajax_load_armarios_produtos' %}"
+    data-estantes-url="{% url 'sisnlab:ajax_load_estantes_produtos' %}"
+    data-bancadas-url="{% url 'sisnlab:ajax_load_bancadas_produtos' %}"
+    data-gavetas_arm-url="{% url 'sisnlab:ajax_load_gavetas_arm_produtos' %}"
+    data-gavetas_est-url="{% url 'sisnlab:ajax_load_gavetas_est_produtos' %}"
+    data-gavetas_ban-url="{% url 'sisnlab:ajax_load_gavetas_ban_produtos' %}"
+    data-prateleiras_arm-url="{% url 'sisnlab:ajax_load_prateleiras_arm_produtos' %}"
+    data-prateleiras_est-url="{% url 'sisnlab:ajax_load_prateleiras_est_produtos' %}"
+    data-prateleiras_ban-url="{% url 'sisnlab:ajax_load_prateleiras_ban_produtos' %}">
+
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form_reagente.nome.errors }}
+        <label>Nome : </label>
+        {{ form_reagente.nome|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_reagente.formula_q.errors }}
+        <label>Fórmula Química : </label>
+        {{ form_reagente.formula_q|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_reagente.grau_p.errors }}
+        <label>Grau de Pureza : </label>
+        {{ form_reagente.grau_p|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_reagente.unidade.errors }}
+        <label>Unidade : </label>
+        {{ form_reagente.unidade|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_reagente.marca.errors }}
+        <label>Marca : </label>
+        {{ form_reagente.marca|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_reagente.quantidade.errors }}
+        <label>Quantidade : </label>
+        {{ form_reagente.quantidade|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_reagente.data_validade.errors }}
+        <label>Data de Validade : </label>
+        {{ form_reagente.data_validade|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_reagente.controle_pfex.errors }}
+        <label>Controle da PF / Exército: </label>
+        {{ form_reagente.controle_pfex|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_reagente.ficha_tec.errors }}
+        <label>Ficha Técnica : </label>
+        {{ form_reagente.ficha_tec|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_reagente.massamolecular.errors }}
+        <label>Massa Molecular : </label>
+        {{ form_reagente.massamolecular|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_reagente.densidade.errors }}
+        <label>Densidade : </label>
+        {{ form_reagente.densidade|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_reagente.disponibilidade.errors }}
+        <label>Disponibilidade : </label>
+        {{ form_reagente.disponibilidade|addclass:'form-control' }}
+    </div>
+    <div class="form-group">
+        {{ form_reagente.sala.errors }}
+        <label>Sala : </label>
+        {{ form_reagente.sala|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        <label for="selectCidade">Selecione o Local:</label>
+        <select id='select' name='select'>
+            <option value="">Selecione</option>
+            <option value="Armario1">Armario</option>
+            <option value="Estante2">Estante</option>
+            <option value="Bancada3">Bancada</option>
+        </select>
+    </div>
+
+    <div class="card bg-light pb-4" style="border-radius: 25px;">
+        <div class="col-xs-4">
+            <div id='pai'>
+                <div id='Armario1'>
+                    {{ form_reagente.armario.errors }}
+                    <label>Armario: </label>
+                    {{ form_reagente.armario|addclass:'form-control' }}
+                </div>
+
+                <div id='Estante2'>
+                    {{ form_reagente.estante.errors }}
+                    <label>Estante : </label>
+                    {{ form_reagente.estante|addclass:'form-control' }}
+                </div>
+
+
+                <div id='Bancada3'>
+                    {{ form_reagente.bancada.errors }}
+                    <label>Bancada : </label>
+                    {{ form_reagente.bancada|addclass:'form-control' }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-4 local">
+
+            <div class="form-group">
+                {{ form_reagente.prateleira.errors }}
+                <label>Prateleira : </label>
+                {{ form_reagente.prateleira|addclass:'form-control' }}
+            </div>
+
+            <div class="form-group">
+                {{ form_reagente.gaveta.errors }}
+                <label>Gaveta : </label>
+                {{ form_reagente.gaveta|addclass:'form-control' }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 local">
+
+            <div class="form-group">
+                {{ form_reagente.obs.errors }}
+                <label>Obs: </label>
+                {{ form_reagente.obs|addclass:'form-control' }}
+            </div>
+
+
+            <div class="form-group">
+                {{ form_reagente.foto.errors }}
+                <label>Foto : </label>
+                {{ form_reagente.foto|addclass:'form-control' }}
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" name="Cadastrar">
+            </div>
+</form>
+{% endblock content %}
+
+
+{% block javascript %}
+
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'nlab/js/jslistaarmario_produtos.js' %}"></script>
+<script src="{% static 'nlab/js/jsdivproduto.js' %}"></script>
+<script src="{% static 'nlab/js/jslistaestante_produtos.js' %}"></script>
+<script src="{% static 'nlab/js/jslistabancada_produtos.js' %}"></script>
+
+<script src="{% static 'nlab/js/jslistaprateleira_arm_produtos.js' %}"></script>
+<script src="{% static 'nlab/js/jslistagaveta_arm_produtos.js' %}"></script>
+
+<script src="{% static 'nlab/js/jslistaprateleira_est_produtos.js' %}"></script>
+<script src="{% static 'nlab/js/jslistagaveta_est_produtos.js' %}"></script>
+
+<script src="{% static 'nlab/js/jslistaprateleira_ban_produtos.js' %}"></script>
+<script src="{% static 'nlab/js/jslistagaveta_ban_produtos.js' %}"></script>
+
+<script src="{% static 'nlab/js/selecione_produto.js' %}"></script>
+<link rel="stylesheet" href="{% static 'nlab/css/style.css' %}">
+<script src="Javascript.js"></script>
+
+
+{% endblock javascript %}

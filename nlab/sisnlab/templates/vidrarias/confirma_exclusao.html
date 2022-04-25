@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+{{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h4><strong> Tem certeza que deseja remover a VIDRARIA abaixo?</strong></h4>
+    </div>
+    
+    <div class="card-body">
+        <h5 class="card-title"><strong>Usuario:</strong> {{vidraria.usuario}}</h5>   
+        <h5 class="card-title"><strong>Nome: </strong>{{vidraria.nome}}</h5>       
+        <h5 class="card-title"><strong>Marca: </strong>{{vidraria.marca}}</h5>
+        <h5 class="card-title"><strong>Data da Compra: </strong>{{vidraria.data_compra}}</h5>
+        <h5 class="card-title"><strong>Data_compra: </strong>{{vidraria.data_compra}}</h5>
+        <h5 class="card-title"><strong>Origem :</strong> <a href="{{ vidraria.origem.url }}" target="_blank" class="btn btn-success btn-download" >Origem</a></h5>
+        <h5 class="card-title"><strong>Ficha Técnica:</strong> <a href="{{ vidraria.ficha_tec.url }}" target="_blank" class="btn btn-success btn-download" >Ficha Técnica</a></h5>
+        <h5 class="card-title"><strong>Especficação técnica:</strong> {{vidraria.especficacao_t|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Quantidade:</strong> {{vidraria.quantidade}}</h5>
+        <h5 class="card-title"><strong>Sala: </strong>{{vidraria.sala|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Armario: </strong>{{vidraria.armario|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Bancada: </strong>{{vidraria.bancada|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Estante: </strong>{{vidraria.estante|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Prateleira:</strong> {{vidraria.prateleira}}</h5>
+        <h5 class="card-title"><strong>Gaveta: </strong>{{vidraria.gaveta|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Observações:</strong> {{vidraria.obs}}</h5>
+        <h5 class="card-title"><strong>Imagem :</strong>  <img src="{{vidraria.foto.url}}" alt="Norway" style="width:25%"> </h5>  
+
+            <form method="post">
+            {% csrf_token %}
+             <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>
+            <button class="btn btn-danger" type="submit">Remover</button>
+        </form>
+
+
+    </div>
+</div>
+
+{% endblock content %}

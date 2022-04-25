@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista das Prateleira
+
+{% endblock title %}
+
+{% block content %}
+<h4><strong>LISTA DE PRATELEIRAS</strong></h4>
+<table class="table table-striped">   
+    <thead>
+    <tr>
+        <th>Usuário</th>
+        <th>Nome</th>       
+        <th>Sigla</th>
+        <th>Armario</th>  
+        <th>Bancada</th>   
+        <th>Estante</th>          
+        <th>Ações</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    {% for i in prateleiras %}
+    <tr>
+        <td><a href="{% url 'sisnlab:editar_prateleira' i.id %}">{{i.usuario}}</a></td>
+        <td><a href="{% url 'sisnlab:editar_prateleira' i.id %}">{{i.nome}}</a></td>
+        <td><a href="{% url 'sisnlab:editar_prateleira' i.id %}">{{i.sigla}}</a></td> 
+        <td><a href="{% url 'sisnlab:editar_prateleira' i.id %}">{{i.armario|default_if_none:"--" }}</a></td>
+        <td><a href="{% url 'sisnlab:editar_prateleira' i.id %}">{{i.bancada|default_if_none:"--" }}</a></td>
+        <td><a href="{% url 'sisnlab:editar_prateleira' i.id %}">{{i.estante|default_if_none:"--" }}</a></td>      
+        <td>
+            <a href="{% url 'sisnlab:editar_prateleira' i.id %}" button class="btn btn-success btn-sm">Editar</a>
+            <a href="{% url 'sisnlab:remover_prateleira' i.id %}" button class="btn btn-danger btn-sm">Remover</button> </a>
+
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'sisnlab:cadastrar_prateleira' %}">
+    <button class="btn btn-primary ">Cadastrar</button>
+</a>
+{% endblock content %}

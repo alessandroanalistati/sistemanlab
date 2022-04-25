@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de VIDRARIA
+{% endblock title %}
+
+{% block content %}
+<h4><strong>CADASTRAR VIDRARIA</strong></h4>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form_vidraria.nome.errors }}
+        <label>Nome : </label>
+        {{ form_vidraria.nome|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_vidraria.marca.errors }}
+        <label>Marca : </label>
+        {{ form_vidraria.marca|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_vidraria.data_compra.errors }}
+        <label>Data da Compra : </label>
+        {{ form_vidraria.data_compra|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_vidraria.origem.errors }}
+        <label>Origem : </label>
+        {{ form_vidraria.origem|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_vidraria.ficha_tec.errors }}
+        <label>Ficha Técnica : </label>
+        {{ form_vidraria.ficha_tec|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_vidraria.especficacao_t.errors }}
+        <label>Especificação Técnica : </label>
+        {{ form_vidraria.especficacao_t|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_vidraria.quantidade.errors }}
+        <label>Quantidade : </label>
+        {{ form_vidraria.quantidade|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_vidraria.sala.errors }}
+        <label>Sala : </label>
+        {{ form_vidraria.sala|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_vidraria.armario.errors }}
+        <label>Armario: </label>
+        {{ form_vidraria.armario|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_vidraria.bancada.errors }}
+        <label>Bancada : </label>
+        {{ form_vidraria.bancada|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_vidraria.estante.errors }}
+        <label>Estante : </label>
+        {{ form_vidraria.estante|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_vidraria.prateleira.errors }}
+        <label>Prateleira : </label>
+        {{ form_vidraria.prateleira|addclass:'form-control' }}
+    </div>
+    
+    <div class="form-group">
+        {{ form_vidraria.gaveta.errors }}
+        <label>Gaveta : </label>
+        {{ form_vidraria.gaveta|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_vidraria.obs.errors }}
+        <label>Obs: </label>
+        {{ form_vidraria.obs|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_vidraria.foto.errors }}
+        <label>Foto : </label>
+        {{ form_vidraria.foto|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+</form>
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de Sala
+{% endblock title %}
+<h1>Lista de Salas</h1>
+{{% block content %}
+ <h4><strong>DADOS DO SALA</strong></h4>
+<div class="card">
+    <div class="card-header">       
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Usuário: {{sala.usuario}}</h5>
+        <h5 class="card-title">Nome: {{sala.nome}}</h5>
+        <h5 class="card-title">Observações: {{sala.obs}}</h5>
+
+    </div>
+</div>
+
+{% endblock content %}

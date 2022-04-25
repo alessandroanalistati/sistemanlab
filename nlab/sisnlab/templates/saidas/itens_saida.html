@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+{{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h1><center><strong>SAIDA</center></strong></h1>
+    </div>
+    
+    <div class="card-body">
+        <h5 class="card-title">Número: {{saida_novo.id}}</h5>  
+            <h5 class="card-title">Nota Fiscal : {{saida_novo.nf}}</h5>  
+            <h5 class="card-title">destinatario: {{saida_novo.destinatario}}</h5>    
+            <h5 class="card-title">Concentração : {{saida_novo.concentracao}}</h5>      
+            <h5 class="card-title">Data de Cadastro : {{saida_novo.data_cadastro}}</h5>      
+            <h5 class="card-title">Doc. Saída: {{saida_novo.nf_foto}}</h5>           
+            <h5 class="card-title">Observações: {{saida_novo.obs}}</h5>            
+
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">  
+
+        <h3 class="card-title"><strong>Inserir Itens da Saida :</strong> {{saida_novo.id}}</h3>   
+
+        <a href="{% url 'sisnlab:itens_saidas' saida_novo.id %}" button class="btn btn-success btn-sm">Inserir</a>
+    </div>   
+</div>
+
+{% endblock content %}

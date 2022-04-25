@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de Armários
+{% endblock title %}
+
+{% block content %}
+<h4><strong>CADASTRAR ARMÁRIO</strong></h4>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-group">
+        {{ form_armario.nome.errors }}
+        <label>Nome : </label>
+        {{ form_armario.nome|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_armario.sigla.errors }}
+        <label>Sigla: </label>
+        {{ form_armario.sigla|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_armario.tombo.errors }}
+        <label>Tombo: </label>
+        {{ form_armario.tombo|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_armario.sala.errors }}
+        <label>Sala : </label>
+        {{ form_armario.sala|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_armario.obs.errors }}
+        <label>Obs: </label>
+        {{ form_armario.obs|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_armario.fotoarmario.errors }}
+        <label>Foto: </label>
+        {{ form_armario.fotoarmario|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+</form>
+{% endblock content %}

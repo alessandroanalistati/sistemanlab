@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+{{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h4><strong> SOLUÇÃO : {{pedidosolucao.id}} </strong></h4>
+    </div>
+    
+    <div class="card-body">      
+        <h4 class="card-title"><strong> Nome da Solução : {{pedidosolucao.nome}} </strong></h4>           
+        <h5 class="card-title">Concentração : {{pedidosolucao.concentracao|default_if_none:"--"}}</h5>      
+        <h5 class="card-title">Data de Produção : {{pedidosolucao.data_producao}}</h5>           
+        <h4 class="card-title"><strong>Quantidade :</strong> {{pedidosolucao.quantidade|default_if_none:"--"}}</h4>  
+        <h5 class="card-title">Status : {{pedidosolucao.status|default_if_none:"--"}}</h5> 
+        <h5 class="card-title">Sala: {{pedidosolucao.sala|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Armario: {{pedidosolucao.armario|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Bancada: {{pedidosolucao.bancada|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Estante: {{pedidosolucao.estante|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Prateleira: {{pedidosolucao.prateleira|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Gaveta: {{pedidosolucao.gaveta|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Observações: {{pedidosolucao.obs}}</h5>    
+       
+      
+
+        <h2 class="card-title"><strong>Produtos Usados</strong></h2>
+
+        <div class="table-responsive" style="overflow: auto; width: 1080px">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Produtos</th>                        
+                        <th>Quantidade</th>
+                    </tr>
+        
+                </thead>
+                <tbody>
+                    {% for i in itenspedidosolucao %}
+                    <tr>
+                        <td><a href="#">{{i.reagente}}</a></td>                        
+                        <td><a href="#">{{i.quantidade}}</a></td>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <form method="post">
+        </form>
+        </div>
+        </div>
+      
+            <form method="post">
+                {% csrf_token %}
+             <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>            
+        </form>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de EQUIPAMENTO
+{% endblock title %}
+
+{{% block content %}
+ <h4><strong>DADOS DO SOLUÇÃO</strong></h4>
+<div class="card">
+    <div class="card-header">       
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Usuário: {{solucao.usuario}}</h5>        
+        <h5 class="card-title">Nome: {{solucao.nome}}</h5>    
+      
+        <h5 class="card-title">Observações: {{solucao.obs}}</h5>      
+    </div>
+</div>
+
+{% endblock content %}

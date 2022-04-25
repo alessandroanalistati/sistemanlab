@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de SOLUÇÃO
+{% endblock title %}
+
+{{% block content %}
+ <h4><strong>DADOS da saida</strong></h4>
+<div class="card">
+    <div class="card-header">       
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Número: {{saida.id}}</h5>  
+            <h5 class="card-title">Nota Fiscal : {{saida.nf|default_if_none:"--" }}</h5>  
+            <h5 class="card-title">destinatario: {{saida.destinatario|default_if_none:"--" }}</h5>    
+            <h5 class="card-title">Concentração : {{saida.concentracao|default_if_none:"--" }}</h5>      
+            <h5 class="card-title">Data de Cadastro : {{saida.data_cadastro|default_if_none:"--" }}</h5>      
+            <h5 class="card-title">Doc Saída: {{saida.nf_foto}}</h5>           
+            <h5 class="card-title">Observações: {{saida.obs}}</h5>              
+            
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+{{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h1><center><strong>SOLUÇÃO</center></strong></h1>
+    </div>
+    
+    <div class="card-body">
+        <h3 class="card-title"><strong>Número:</strong> {{pedidosolucao_novo.id}}</h3>  
+        <h5 class="card-title">Usuário: {{pedidosolucao_novo.usuario}}</h5>       
+        <h5 class="card-title">Nome: {{pedidosolucao_novo.nome}}</h5>           
+        <h5 class="card-title">Concentração : {{pedidosolucao_novo.concentracao}}</h5>      
+        <h5 class="card-title">Data de Produção : {{pedidosolucao_novo.data_producao}}</h5>     
+        <h5 class="card-title">Quantidade : {{pedidosolucao_novo.quantidade}}</h5>  
+        <h5 class="card-title">Status : {{pedidosolucao_novo.status}}</h5> 
+        <h5 class="card-title">Sala: {{pedidosolucao_novo.sala}}</h5>
+        <h5 class="card-title">Armario: {{pedidosolucao_novo.armario}}</h5>
+        <h5 class="card-title">Bancada: {{pedidosolucao_novo.bancada}}</h5>
+        <h5 class="card-title">Estante: {{pedidosolucao_novo.estante}}</h5>
+        <h5 class="card-title">Prateleira: {{pedidosolucao_novo.prateleira}}</h5>
+        <h5 class="card-title">Gaveta: {{pedidosolucao_novo.gaveta}}</h5>
+        <h5 class="card-title">Observações: {{pedidosolucao_novo.obs}}</h5> 
+
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">  
+
+        <h3 class="card-title"><strong>Inserir ITENS usados na solução número:</strong> {{pedidosolucao_novo.id}}</h3>  
+         
+
+        <a href="{% url 'sisnlab:itens_pedidosolucoes' pedidosolucao_novo.id %}" button class="btn btn-success btn-sm">Inserir</a>
+    </div>   
+</div>
+
+{% endblock content %}

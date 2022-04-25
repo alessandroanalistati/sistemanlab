@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+{% endblock title %}
+
+{{% block content %}
+ Tem certeza que deseja remover a Armário abaixo?
+<div class="card">
+    <div class="card-header">
+         <h4><strong> Tem certeza que deseja remover a ESTANTE abaixo?</strong></h4>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Usuário: {{armario.usuario}}</h5>
+        <h5 class="card-title">Nome: {{estante.nome}}</h5>
+        <h5 class="card-title">Sibla: {{estante.sibla}}</h5>
+        <h5 class="card-title">Tombo: {{estante.tombo}}</h5>
+        <h5 class="card-title">Sala: {{estante.sala}}</h5>
+        <h5 class="card-title">Observações: {{estante.obs}}</h5>
+            <form method="post">
+            {% csrf_token %}
+             <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>
+            <button class="btn btn-danger" type="submit">Remover</button>
+        </form>
+
+
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista das Unidades
+
+{% endblock title %}
+
+{% block content %}
+<h4><strong>LISTA DE UNIDADE</strong></h4>
+<table class="table table-striped">   
+    <thead>
+    <tr>
+        <th>Usuário</th>
+        <th>Nome</th>               
+        <th>Ações</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    {% for i in unidades %}
+    <tr>
+        <td><a href="{% url 'sisnlab:editar_unidade' i.id %}">{{i.usuario}}</a></td>             
+        <td><a href="{% url 'sisnlab:editar_unidade' i.id %}">{{i.nome}}</a></td>             
+        <td>
+            <a href="{% url 'sisnlab:editar_unidade' i.id %}" button class="btn btn-success btn-sm">Editar</a>
+            <a href="{% url 'sisnlab:remover_unidade' i.id %}" button class="btn btn-danger btn-sm">Remover</button> </a>
+
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'sisnlab:cadastrar_unidade' %}">
+    <button class="btn btn-primary ">Cadastrar</button>
+</a>
+{% endblock content %}

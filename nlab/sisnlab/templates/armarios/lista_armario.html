@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de Armário
+{% endblock title %}
+
+{{% block content %}
+ <h4><strong>DADOS DO ARMÁRIO</strong></h4>
+<div class="card">
+    <div class="card-header">       
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Usuário: {{armario.usuario}}</h5>
+        <h5 class="card-title">Nome: {{armario.nome}}</h5>
+        <h5 class="card-title">Sibla: {{armario.sibla}}</h5>
+        <h5 class="card-title">Tombo: {{armario.tombo}}</h5>
+        <h5 class="card-title">Sala: {{armario.sala}}</h5>
+        <h5 class="card-title">Observações: {{armario.obs}}</h5>
+        <h5 class="card-title">Foto : <img src="{{armario.fotoarmario.url}}" alt="Norway" style="width:25%"> </h5> 
+    </div>
+</div>
+
+{% endblock content %}

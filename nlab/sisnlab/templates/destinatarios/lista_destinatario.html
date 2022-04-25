@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de DESTINATÁRIOES
+{% endblock title %}
+
+{{% block content %}
+ <h4><strong>DADOS DO DESTINATÁRIO</strong></h4>
+<div class="card">
+    <div class="card-header">       
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Usuário: {{destinatario.usuario}}</h5>
+        <h5 class="card-title">Nome: {{destinatario.nome}}</h5>
+        <h5 class="card-title">CNPJ: {{destinatario.cnpj|default_if_none:"--"}}</h5>
+        <h5 class="card-title">CPF: {{destinatario.cpf|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Data de Cadastro: {{destinatario.data_cadastro}}</h5>
+        <h5 class="card-title">Endereco: {{destinatario.endereco|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Telefone Fixo: {{destinatario.telefone|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Celular: {{destinatario.cel|default_if_none:"--"}}</h5>
+        <h5 class="card-title">E-mail : {{destinatario.email|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Observações: {{destinatario.obs}}</h5>
+        
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de FORNECEDORES
+{% endblock title %}
+
+{{% block content %}
+ <h4><strong>DADOS DO FORNECEDOR</strong></h4>
+<div class="card">
+    <div class="card-header">       
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Usuário: {{fornecedor.usuario|default_if_none:"--" }}</h5>
+        <h5 class="card-title">Nome: {{fornecedor.nome|default_if_none:"--" }}</h5>
+        <h5 class="card-title">CNPJ: {{fornecedor.cnpj|default_if_none:"--" }}</h5>
+        <h5 class="card-title">CPF: {{fornecedor.cpf|default_if_none:"--" }}</h5>
+        <h5 class="card-title">Data de Cadastro: {{fornecedor.data_cadastro|default_if_none:"--" }}</h5>
+        <h5 class="card-title">Endereco: {{fornecedor.endereco|default_if_none:"--" }}</h5>
+        <h5 class="card-title">Telefone Fixo: {{fornecedor.telefone|default_if_none:"--" }}</h5>
+        <h5 class="card-title">Celular: {{fornecedor.cel|default_if_none:"--" }}</h5>
+        <h5 class="card-title">E-mail : {{fornecedor.email|default_if_none:"--" }}</h5>
+        <h5 class="card-title">Observações: {{fornecedor.obs}}</h5>
+        
+    </div>
+</div>
+
+{% endblock content %}

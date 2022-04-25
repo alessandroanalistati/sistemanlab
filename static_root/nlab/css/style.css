@@ -1,0 +1,21 @@
+
+body {
+    padding-top: 3rem;
+}
+
+li a {
+color: green;
+}
+
+body {
+background: white url("images/logo.jpg") no-repeat right bottom;
+}
+
+
+.scroll {   /*classe com qualquer nome*/
+    overflow:auto;
+}
+
+#pai div{
+    display: none;
+}

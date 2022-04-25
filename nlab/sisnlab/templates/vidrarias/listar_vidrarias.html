@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de VIDRARIAS
+{% endblock title %}
+{% block content %}
+<h4><strong>LISTA DE VIDRARIAS</strong></h4>
+<div style="overflow: auto; width: 1080px">
+    <table class="table table-striped">   
+        <thead>
+        <tr>
+            <th>Usuário</th>               
+            <th>Nome</th>               
+            <th>Marca</th> 
+            <th>Data da Compra</th>   
+            <th>Origem</th>            
+            <th>Ficha Técnica</th>
+            <th>Especivicação Técnica</th>  
+            <th>Quantidade</th>   
+            <th>Sala</th>   
+            <th>Armario</th>  
+            <th>Bancada</th>   
+            <th>Estante</th>   
+            <th>Prateleira</th>   
+            <th>Gaveta</th>  
+            <th>Observação</th>                 
+            <th>Foto</th>                 
+            <th>Ações</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        {% for i in vidrarias %}
+        <tr>
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.usuario}}</a></td>           
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.nome}}</a></td>           
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.marca}}</a></td>
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.data_compra}}</a></td>
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.origem}}</a></td>
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.ficha_tec}}</a></td>
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.especficacao_t}}</a></td>
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.quantidade}}</a></td>
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.sala|default_if_none:"--"}}</a></td>
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.armario|default_if_none:"--"}}</a></td>
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.bancada|default_if_none:"--"}}</a></td>
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.estante|default_if_none:"--"}}</a></td>
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.prateleira|default_if_none:"--"}}</a></td>
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.gaveta|default_if_none:"--"}}</a></td>
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.obs}}</a></td>
+            <td><a href="{% url 'sisnlab:visualizar_vidraria' i.id %}">{{i.foto}}</a></td>
+
+            <td>
+                <a href="{% url 'sisnlab:editar_vidraria' i.id %}" button class="btn btn-success btn-sm">Editar</a>
+                <a href="{% url 'sisnlab:remover_vidraria' i.id %}" button class="btn btn-danger btn-sm">Remover</button> </a>
+                <a href="{% url 'sisnlab:visualizar_vidraria' i.id %}" button class="btn btn-info btn-sm">Visualizar</button> </a>
+                
+
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+ </div>
+<a href="{% url 'sisnlab:cadastrar_vidraria' %}">
+    <button class="btn btn-primary ">Cadastrar</button>
+</a>
+{% endblock content %}

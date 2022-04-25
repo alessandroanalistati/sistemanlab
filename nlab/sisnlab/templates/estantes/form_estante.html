@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de Estante
+{% endblock title %}
+{% block content %}
+<h4><strong>CADASTRAR ESTANTE</strong></h4>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form_estante.nome.errors }}
+        <label>Nome : </label>
+        {{ form_estante.nome|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_estante.sigla.errors }}
+        <label>Sigla: </label>
+        {{ form_estante.sigla|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_estante.tombo.errors }}
+        <label>Tombo: </label>
+        {{ form_estante.tombo|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_estante.sala.errors }}
+        <label>Sala : </label>
+        {{ form_estante.sala|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_estante.obs.errors }}
+        <label>Obs: </label>
+        {{ form_estante.obs|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+</form>
+{% endblock content %}

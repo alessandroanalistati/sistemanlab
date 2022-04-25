@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de REAGENTES
+{% endblock title %}
+{% block content %}
+<h4><strong>LISTA DE ENTRADA</strong></h4>
+<div class="table-responsive" style="overflow: auto; width: 1080px">
+    <a href="{% url 'sisnlab:cadastrar_entrada' %}">
+        <button class="btn btn-primary ">Cadastrar</button>
+    </a>
+    <table class="table table-striped">       
+        <thead>
+        <tr>
+            <th>Número</th>
+            <th>Usuário</th>
+            <th>NF</th>
+            <th>Fornecedor</th>   
+            <th>Data de Cadastro</th>               
+            <th>NF_Imagem</th>         
+            <th>Observação</th>                                     
+            <th>Ações</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        {% for i in entradas %}
+        <tr>
+            <td><a href="{% url 'sisnlab:visualizar_entrada' i.id %}">{{i.id}}</a></td>    
+            <td><a href="{% url 'sisnlab:visualizar_entrada' i.id %}">{{i.usuario}}</a></td>     
+            <td><a href="{% url 'sisnlab:visualizar_entrada' i.id %}">{{i.nf}}</a></td>  
+            <td><a href="{% url 'sisnlab:visualizar_entrada' i.id %}">{{i.fornecedor}}</a></td>     
+            <td><a href="{% url 'sisnlab:visualizar_entrada' i.id %}">{{i.data_cadastro}}</a></td>           
+            <td><a href="{% url 'sisnlab:visualizar_entrada' i.id %}">{{i.nf_foto}}</a></td>        
+            <td><a href="{% url 'sisnlab:visualizar_entrada' i.id %}">{{i.obs}}</a></td>            
+
+            <td>
+                <a href="{% url 'sisnlab:editar_entrada' i.id %}" button class="btn btn-success btn-sm">Editar</a>                
+                <a href="{% url 'sisnlab:visualizar_entrada' i.id %}" button class="btn btn-info btn-sm">Visualizar</button> </a>
+                
+
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+       
+    </table>
+ </div>
+
+{% endblock content %}

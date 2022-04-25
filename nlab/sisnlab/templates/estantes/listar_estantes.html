@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista das Estante
+
+{% endblock title %}
+<h4><strong>LISTA DE ESTANTES</strong></h4>
+{% block content %}
+
+<table class="table table-striped">   
+    <thead>
+    <tr>
+        <th>Usuario</th>
+        <th>Nome</th>
+        <th>Sigla</th>
+        <th>Tombo</th>
+        <th>Sala</th>        
+        <th>Ações</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    {% for i in estantes %}
+    <tr>
+        <td><a href="{% url 'sisnlab:editar_estante' i.id %}">{{i.usuario|default_if_none:"--" }}</a></td>
+        <td><a href="{% url 'sisnlab:editar_estante' i.id %}">{{i.nome|default_if_none:"--" }}</a></td>
+        <td><a href="{% url 'sisnlab:editar_estante' i.id %}">{{i.sigla|default_if_none:"--" }}</a></td>
+        <td><a href="{% url 'sisnlab:editar_estante' i.id %}">{{i.tombo|default_if_none:"--" }}</a></td>
+        <td><a href="{% url 'sisnlab:editar_estante' i.id %}">{{i.sala|default_if_none:"--" }}</a></td>
+        <td>
+            <a href="{% url 'sisnlab:editar_estante' i.id %}" button class="btn btn-success btn-sm">Editar</a>
+            <a href="{% url 'sisnlab:remover_estante' i.id %}" button class="btn btn-danger btn-sm">Remover</button> </a>
+
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'sisnlab:cadastrar_estante' %}">
+    <button class="btn btn-primary ">Cadastrar</button>
+</a>
+{% endblock content %}

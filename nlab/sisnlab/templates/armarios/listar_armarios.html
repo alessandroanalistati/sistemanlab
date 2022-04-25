@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de Armários
+{% endblock title %}
+{% block content %}
+
+
+
+<h4><strong>LISTA DE ARMÁRIOS</strong></h4>
+
+
+<table class="table table-striped">   
+    <thead>
+    <tr>
+        <th>Usuário</th>
+        <th>Nome</th>
+        <th>Sigla</th>
+        <th>Tombo</th>
+        <th>Sala</th>   
+        <th>Foto</th>        
+        <th>Ações</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    {% for i in armarios %}
+    <tr>
+        <td><a href="{% url 'sisnlab:listar_sala_id' i.id %}">{{i.usuario}}</a></td>
+        <td><a href="{% url 'sisnlab:editar_armario' i.id %}">{{i.nome}}</a></td>
+        <td><a href="{% url 'sisnlab:editar_armario' i.id %}">{{i.sigla}}</a></td>
+        <td><a href="{% url 'sisnlab:editar_armario' i.id %}">{{i.tombo}}</a></td>
+        <td><a href="{% url 'sisnlab:editar_armario' i.id %}">{{i.sala}}</a></td>
+        <td><a href="{% url 'sisnlab:visualizar_armario' i.id %}">{{i.fotoarmario}}</a></td>
+        <td>
+            <a href="{% url 'sisnlab:editar_armario' i.id %}" button class="btn btn-success btn-sm">Editar</a>
+            <a href="{% url 'sisnlab:remover_armario' i.id %}" button class="btn btn-danger btn-sm">Remover</button> </a>
+            <a href="{% url 'sisnlab:visualizar_armario' i.id %}" button class="btn btn-info btn-sm">Visualizar</button> </a>
+
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'sisnlab:cadastrar_armario' %}">
+    <button class="btn btn-primary ">Cadastrar</button>
+</a>
+
+
+{% endblock content %}

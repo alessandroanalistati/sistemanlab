@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de REAGENTE
+{% endblock title %}
+
+{% block content %}
+<h4><strong>CADASTRAR PRODUTOS NA SOLUCAO</strong></h4>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %} 
+
+
+    <div class="form-group">
+        {{ form_itenspedidosolucao.reagente.errors }}        
+        <label>Produto : </label>
+        {{ form_itenspedidosolucao.reagente|addclass:'form-control' }}        
+
+    </div>
+
+   <div class="form-group">
+        {{ form_itenspedidosolucao.quantidade.errors }}
+        <label>Quantidade : </label>
+        {{ form_itenspedidosolucao.quantidade|addclass:'form-control' }}
+    </div>
+
+    
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+
+</form>
+
+<a href="{% url 'sisnlab:baixa_estoque' user.id %}">
+    <button class="btn btn-primary ">Finalizar Solução</button>
+</a>
+
+
+{% endblock content %}

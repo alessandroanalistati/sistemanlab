@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de MOVIMENTO
+{% endblock title %}
+
+{% block content %}
+<h4><strong>CADASTRAR ENTRADA</strong></h4>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}  
+
+    <div class="form-group">
+        {{ form_itensentrada.reagente.errors }}
+        <label>Reagente : </label>
+        {{ form_itensentrada.reagente|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_itensentrada.unidade.errors }}
+        <label>Unidade : </label>
+        {{ form_itensentrada.unidade|addclass:'form-control' }}
+    </div>
+
+   <div class="form-group">
+        {{ form_itensentrada.quantidade.errors }}
+        <label>Quantidade : </label>
+        {{ form_itensentrada.quantidade|addclass:'form-control' }}
+    </div>
+
+    
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+
+</form>
+
+<a href="{% url 'sisnlab:entrada_estoque' user.id %}">
+    <button class="btn btn-primary ">Finalizar Solução</button>
+</a>
+
+
+{% endblock content %}

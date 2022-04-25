@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista das Gaveta
+{% endblock title %}
+
+{{% block content %}
+ <h4><strong>DADOS DA GAVETA</strong></h4>
+<div class="card">
+    <div class="card-header">        
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Usuário: {{armario.usuario|default_if_none:"--"}}</h5>  
+        <h5 class="card-title">Nome: {{gaveta.nome|default_if_none:"--"}}</h5>  
+        <h5 class="card-title">Sibla: {{gaveta.sibla|default_if_none:"--"}}</h5>  
+        <h5 class="card-title">Armario: {{gaveta.armario|default_if_none:"--"}}</h5>  
+        <h5 class="card-title">Bancada: {{gaveta.bancada|default_if_none:"--"}}</h5>  
+        <h5 class="card-title">Estante: {{gaveta.estante|default_if_none:"--"}}</h5>                   
+        <h5 class="card-title">Observações: {{gaveta.obs}}</h5>
+
+    </div>
+</div>
+
+{% endblock content %}

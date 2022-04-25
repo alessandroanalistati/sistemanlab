@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+CADASTRO DE AULA PRÁTICA
+{% endblock title %}
+
+{% block content %}
+<h4><strong>CADASTRAR AULA PRÁTICA</strong></h4>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+     
+    <label>Usuario : </label>
+   {{ user.get_username }}   
+        
+    </div>
+
+    <div class="form-group">
+        {{ form_aulapratica.nome.errors }}
+        <label>Nome : </label>
+        {{ form_aulapratica.nome|addclass:'form-control' }}
+    </div>
+ 
+    <div class="form-group">
+        {{ form_aulapratica.sala.errors }}
+        <label>Sala : </label>
+        {{ form_aulapratica.sala|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_aulapratica.data_inicio.errors }}
+        <label>Data do Inicio da Aula : </label>       
+        {{ form_aulapratica.data_inicio|addclass:'form-control'}}
+   
+    </div>
+
+    <div class="form-group">
+        {{ form_aulapratica.horario_inicio.errors }}
+        <label>Horário Inicial </label>
+        {{ form_aulapratica.horario_inicio|addclass:'form-control' }}
+    </div>  
+
+    <div class="form-group">
+        {{ form_aulapratica.horario_fim.errors }}
+        <label>Horário Final </label>
+        {{ form_aulapratica.horario_fim|addclass:'form-control' }}
+    </div>  
+
+    <div class="form-group">
+        {{ form_aulapratica.quantalunos.errors }}
+        <label>Quantidade de Alunos : </label>
+        {{ form_aulapratica.quantalunos|addclass:'form-control' }}
+    </div>
+        <div class="form-group">
+        {{ form_aulapratica.obs.errors }}
+        <label>Obs: </label>
+        {{ form_aulapratica.obs|addclass:'form-control' }}
+    </div>
+
+        <div class="form-group">
+        {{ form_aulapratica.status.errors }}
+        <label>Status: </label>
+        {{ form_aulapratica.status|addclass:'form-control' }}
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+</form>
+{% endblock content %}

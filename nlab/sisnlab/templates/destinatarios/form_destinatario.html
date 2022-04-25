@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de 'DESTINATÁRIO
+{% endblock title %}
+
+{% block content %}
+<h4><strong>CADASTRAR DESTINATÁRIO</strong></h4>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form_destinatario.nome.errors }}
+        <label>Nome : </label>
+        {{ form_destinatario.nome|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_destinatario.cnpj.errors }}
+        <label>CNPJ: </label>
+        {{ form_destinatario.cnpj|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_destinatario.cpf.errors }}
+        <label>CPF: </label>
+        {{ form_destinatario.cpf|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_destinatario.data_cadastro.errors }}
+        <label>Data de Cadastro : </label>
+        {{ form_destinatario.data_cadastro|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_destinatario.endereco.errors }}
+        <label>Endereco: </label>
+        {{ form_destinatario.endereco|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_destinatario.telefone.errors }}
+        <label>Felefone Fixo: </label>
+        {{ form_destinatario.telefone|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_destinatario.cel.errors }}
+        <label>Celular : </label>
+        {{ form_destinatario.cel|addclass:'form-control' }}
+    </div>
+    
+    <div class="form-group">
+        {{ form_destinatario.email.errors }}
+        <label>E-mail : </label>
+        {{ form_destinatario.email|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_destinatario.obs.errors }}
+        <label>Observação : </label>
+        {{ form_destinatario.obs|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+</form>
+{% endblock content %}

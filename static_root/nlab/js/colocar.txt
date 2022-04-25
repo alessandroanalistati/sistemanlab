@@ -1,0 +1,4 @@
+colocar assim no tamplat
+
+{% load static %}
+<script src="{% static 'nlab/js/jsteste.js' %}"></script>

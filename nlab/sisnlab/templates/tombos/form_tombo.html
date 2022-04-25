@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de Tombos
+{% endblock title %}
+
+{% block content %}
+ <h4><strong>CADASTRAR DE TOMBO</strong></h4>
+    <form method="post">
+        {% csrf_token %}
+         <div class="form-group">
+            {{ form.numero.errors }}
+            <label>Número: </label>
+            {{ form.numero|addclass:'form-control'}}
+        </div>
+
+         <div class="form-group">
+            {{ form.descricao.errors }}
+            <label>Descrição: </label>
+            {{ form.descricao|addclass:'form-control' }}
+        </div>
+        <div>
+            <input type="submit" name="Cadastrar">
+        </div>
+    </form>
+{% endblock content %}

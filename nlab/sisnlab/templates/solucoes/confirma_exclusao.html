@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+{{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h4><strong> Tem certeza que deseja remover a SOLUCAO abaixo?</strong></h4>
+    </div>
+    
+    <div class="card-body">
+        <h5 class="card-title"><strong>Usuário: </strong>{{solucao.usuario}}</h5>        
+        <h4 class="card-title"><strong>Nome:</strong> {{solucao.nome}}</h4>   
+        <h5 class="card-title"><strong>Quantidade:</strong> {{solucao.quantidade}}</h5>       
+        <h5 class="card-title"><strong>Sala: </strong>{{solucao.sala|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Armario: </strong>{{solucao.armario|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Bancada: </strong>{{solucao.bancada|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Estante:</strong> {{solucao.estante|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Prateleira:</strong> {{solucao.prateleira|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Gaveta : </strong> {{solucao.gaveta|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Observações:</strong> {{solucao.obs}}</h5>      
+
+        <form method="post">
+            {% csrf_token %}
+             <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>
+            <button class="btn btn-danger" type="submit">Remover</button>
+        </form>
+
+
+    </div>
+</div>
+
+{% endblock content %}

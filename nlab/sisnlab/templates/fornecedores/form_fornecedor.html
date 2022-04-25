@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de FORNECEDORES
+{% endblock title %}
+
+{% block content %}
+<h4><strong>CADASTRAR FORNECEDORES</strong></h4>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form_fornecedor.nome.errors }}
+        <label>Nome : </label>
+        {{ form_fornecedor.nome|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_fornecedor.cnpj.errors }}
+        <label>CNPJ: </label>
+        {{ form_fornecedor.cnpj|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_fornecedor.cpf.errors }}
+        <label>CPF: </label>
+        {{ form_fornecedor.cpf|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_fornecedor.data_cadastro.errors }}
+        <label>Data de Cadastro : </label>
+        {{ form_fornecedor.data_cadastro|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_fornecedor.endereco.errors }}
+        <label>Endereco: </label>
+        {{ form_fornecedor.endereco|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_fornecedor.telefone.errors }}
+        <label>Felefone Fixo: </label>
+        {{ form_fornecedor.telefone|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_fornecedor.cel.errors }}
+        <label>Celular : </label>
+        {{ form_fornecedor.cel|addclass:'form-control' }}
+    </div>
+    
+    <div class="form-group">
+        {{ form_fornecedor.email.errors }}
+        <label>E-mail : </label>
+        {{ form_fornecedor.email|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_fornecedor.obs.errors }}
+        <label>Observação : </label>
+        {{ form_fornecedor.obs|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+</form>
+{% endblock content %}

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de DIVERSO
+{% endblock title %}
+
+{% block content %}
+<h4><strong>CADASTRAR DIVERSO</strong></h4>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group" enctype="multipart/form-data">
+        {{ form_diverso.nome.errors }}
+        <label>Nome : </label>
+        {{ form_diverso.nome|addclass:'form-control' }}
+    </div>
+ 
+     <div class="form-group">
+        {{ form_diverso.marca.errors }}
+        <label>Marca : </label>
+        {{ form_diverso.marca|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_diverso.unidade.errors }}
+        <label>Unidade : </label>
+        {{ form_diverso.unidade|addclass:'form-control' }}
+    </div>  
+
+    <div class="form-group">
+        {{ form_diverso.quantidade.errors }}
+        <label>Quantidade : </label>
+        {{ form_diverso.quantidade|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_diverso.ficha_tec.errors }}
+        <label>Ficha Técnica : </label>
+        {{ form_diverso.ficha_tec|addclass:'form-control' }}
+    </div>
+    
+    <div class="form-group">
+        {{ form_diverso.sala.errors }}
+        <label>Sala : </label>
+        {{ form_diverso.sala|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_diverso.armario.errors }}
+        <label>Armario: </label>
+        {{ form_diverso.armario|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_diverso.bancada.errors }}
+        <label>Bancada : </label>
+        {{ form_diverso.bancada|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_diverso.estante.errors }}
+        <label>Estante : </label>
+        {{ form_diverso.estante|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_diverso.prateleira.errors }}
+        <label>Prateleira : </label>
+        {{ form_diverso.prateleira|addclass:'form-control' }}
+    </div>
+    
+    <div class="form-group">
+        {{ form_diverso.gaveta.errors }}
+        <label>Gaveta : </label>
+        {{ form_diverso.gaveta|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_diverso.obs.errors }}
+        <label>Observação: </label>
+        {{ form_diverso.obs|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_diverso.foto.errors }}
+        <label>Foto : </label>
+        {{ form_diverso.foto|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+</form>
+{% endblock content %}

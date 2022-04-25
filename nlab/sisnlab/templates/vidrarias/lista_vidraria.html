@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de vidraria
+{% endblock title %}
+
+{{% block content %}
+ <h4><strong>DADOS DO VIDRARIA</strong></h4>
+<div class="card">
+    <div class="card-header">       
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Usuario: {{vidraria.usuario}}</h5>   
+        <h5 class="card-title">Nome: {{vidraria.nome}}</h5>       
+        <h5 class="card-title">Marca: {{vidraria.marca|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Data da Compra: {{vidraria.data_compra}}</h5>
+        <h5 class="card-title">data_compra: {{vidraria.data_compra}}</h5>
+        <h5 class="card-title">Origem: {{vidraria.origem}}</h5>
+        <h5 class="card-title">Ficha Técnica: {{vidraria.ficha_tec}}</h5>
+        <h5 class="card-title">Especficação técnica: {{vidraria.especficacao_t}}</h5>
+        <h5 class="card-title">Quantidade: {{vidraria.quantidade}}</h5>
+        <h5 class="card-title">Sala: {{vidraria.sala|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Armario: {{vidraria.armario|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Bancada: {{vidraria.bancada|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Estante: {{vidraria.estante|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Prateleira: {{vidraria.prateleira|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Gaveta: {{vidraria.gaveta|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Observações: {{vidraria.obs}}</h5>
+        <h5 class="card-title">Foto : <img src="{{vidraria.foto.url}}" alt="Norway" style="width:25%"> </h5>  
+
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+{{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h4><strong> DADOS DO DESTINATÁRIO</strong></h4>
+    </div>
+    
+    <div class="card-body">
+        <h5 class="card-title">Usuário: {{destinatario.usuario}}</h5>
+        <h5 class="card-title">Nome: {{destinatario.nome|default_if_none:"--"}}</h5>
+        <h5 class="card-title">CNPJ: {{destinatario.cnpj|default_if_none:"--"}}</h5>
+        <h5 class="card-title">CPF: {{destinatario.cpf|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Data de Cadastro: {{destinatario.data_cadastro}}</h5>
+        <h5 class="card-title">Endereco: {{destinatario.endereco|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Telefone Fixo: {{destinatario.telefone|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Celular: {{destinatario.cel|default_if_none:"--"}}</h5>
+        <h5 class="card-title">E-mail : {{destinatario.email|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Observações: {{destinatario.obs}}</h5>
+        
+            <form method="post">
+            {% csrf_token %}
+             <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>            
+        </form>
+
+
+    </div>
+</div>
+
+{% endblock content %}
+
+
+<h5 class="card-title">Imagem: {{destinatario.imagem}}</h5>    

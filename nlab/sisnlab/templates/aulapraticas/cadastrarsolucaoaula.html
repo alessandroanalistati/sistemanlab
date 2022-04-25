@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de solução
+{% endblock title %}
+
+{% block content %}
+<h4><strong>CADASTRAR SOLUÇÕES USADOS NA PRÁTICA</strong></h4>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %} 
+
+ 
+    <div class="form-group">
+        {{ form_solucaoaulapratica.solucao.errors }}
+        <label>Solução </label>
+        {{ form_solucaoaulapratica.solucao|addclass:'form-control' }}
+    </div>
+
+    
+    <div class="form-group">
+        {{ form_solucaoaulapratica.quant_solucao.errors }}
+        <label>Quantidade de Solução </label>
+        {{ form_solucaoaulapratica.quant_solucao|addclass:'form-control' }}
+    </div>
+
+    
+
+    
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+
+  
+</form>
+
+
+
+
+{% endblock content %}

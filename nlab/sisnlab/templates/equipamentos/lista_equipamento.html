@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de EQUIPAMENTO
+{% endblock title %}
+
+{{% block content %}
+ <h4><strong>DADOS DO EQUIPAMENTO</strong></h4>
+<div class="card">
+    <div class="card-header">       
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Usuário: {{equipamento.usuario}}</h5>        
+        <h5 class="card-title">Nome: {{equipamento.nome}}</h5>        
+        <h5 class="card-title">Tombo: {{equipamento.tombo}}</h5>
+        <h5 class="card-title">Marca: {{equipamento.marca|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Data da Compra: {{equipamento.data_compra|default_if_none:"--"}}</h5>        
+        <h5 class="card-title">Data da Ultima Manutenção: {{equipamento.data_ultim_m|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Origem: {{equipamento.origem|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Ficha Técnica: {{equipamento.ficha_tec|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Especficação técnica: {{equipamento.especficacao_t|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Calibragem: {{equipamento.calibragem}}</h5>
+        <h5 class="card-title">Sala: {{equipamento.sala|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Armario: {{equipamento.armario|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Bancada: {{equipamento.bancada|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Estante: {{equipamento.estante|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Prateleira: {{equipamento.prateleira|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Gaveta: {{equipamento.gaveta|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Observações: {{equipamento.obs|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Foto : <img src="{{equipamento.foto.url}}" alt="Norway" style="width:25%"> </h5> 
+
+    </div>
+</div>
+
+{% endblock content %}

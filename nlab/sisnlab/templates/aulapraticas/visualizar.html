@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% endblock title %}
+{{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+
+<div class="card">
+    <div class="card-header">
+        <h4><strong> Aula Pratica : {{aulapratica.id}} </strong></h4>
+</div>
+
+<div class="card-body">
+    <h5 class="card-title">Número: {{aulapratica.id}}</h5>
+    <h5 class="card-title">Nome: {{aulapratica.nome}}</h5>
+    <h5 class="card-title">Sala : {{aulapratica.sala}}</h5>
+    <h5 class="card-title">Data da Aula : {{aulapratica.data_inicio}}</h5>
+    <h5 class="card-title">Horário Inicial : {{aulapratica.horario_inicio}}</h5>
+    <h5 class="card-title">Horário Final : {{aulapratica.horario_fim}}</h5>
+    <h4 class="card-title">Quantidade de Alunos : {{aulapratica.quantalunos}}</h4>
+    <h5 class="card-title">Observações: {{aulapratica.obs}}</h5>
+    <h5 class="card-title">Status : {{aulapratica.status}}</h5>
+</div>
+<div>
+    <h2 class="card-title"><strong>Materiais Usados na Aula Prática</strong></h2>
+</div>
+
+    <div class="table-responsive" style="overflow: auto; width: 1080px">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Produtos</th>                   
+                    <th>Quantidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in itensaulapratica %}
+                <tr>
+                    <td><a href="#">{{i.reagente}}</a></td>                    
+                    <td><a href="#">{{i.quant_reagente}}</a></td>                                    
+                       
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="table-responsive" style="overflow: auto; width: 880px">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Soluções</th>
+                    <th>Quantidade</th>
+                </tr>
+            </thead>
+                <tbody>
+                    {% for s in solucaoaulapratica %}
+                    <tr>
+                        <td><a href="#">{{s.solucao}}</a></td>
+                        <td><a href="#">{{s.quant_solucao}}</a></td>   
+                                         
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+    </div>  
+
+    <div class="table-responsive" style="overflow: auto; width: 680px">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Equipamentos</th>
+                    <th>Quantidade</th>
+                </tr>
+            </thead>
+                <tbody>
+                    {% for equip in equipamentosaulapratica %}
+                    <tr>
+                        <td><a href="#">{{equip.equipamentos}}</a></td>
+                        <td><a href="#">{{equip.quant_equipamentos}}</a></td>  
+                                      
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+    </div>
+
+    <form method="post">
+    </form>   
+    
+
+    <form method="post">
+        {% csrf_token %}
+        <a href="javascript:history.back()" <a href="#"<button type="button" class="btn btn-success btn-lg">Voltar</button></a>
+    </form>
+    
+</div>
+</div>
+
+{% endblock content %}

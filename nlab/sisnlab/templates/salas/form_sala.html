@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+
+Cadastro de Salas
+
+{% endblock title %}
+
+{% block content %}
+ <h4><strong>CADASTRAR DE SALA</strong></h4>
+    <form method="post">
+        {% csrf_token %}
+
+         <div class="form-group">
+            {{ form.nome.errors }}
+            <label>Nome: </label>
+            {{ form.nome|addclass:'form-control'}}
+        </div>
+
+         <div class="form-group">
+            {{ form.obs.errors }}
+            <label>OBS: </label>
+            {{ form.obs|addclass:'form-control' }}
+        </div>
+        <div>
+            <input type="submit" name="Cadastrar">
+        </div>
+    </form>
+{% endblock content %}

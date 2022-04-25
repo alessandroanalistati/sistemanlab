@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+{{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h4><strong> DADOS DO SOLUCAO</strong></h4>
+    </div>
+    
+    <div class="card-body">
+        <h5 class="card-title"><strong>Usuário: </strong>{{solucao.usuario}}</h5>        
+        <h4 class="card-title"><strong>Nome:</strong> {{solucao.nome}}</h4>      
+        <h5 class="card-title"><strong>Observações:</strong> {{solucao.obs}}</h5>      
+        
+            <form method="post">
+            {% csrf_token %}
+             <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>            
+        </form>
+
+
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,166 @@
+{% extends 'adminlte/lib/_main_sidebar.html' %}
+
+
+
+{% block nav_links %}
+ <li class="#">{% block nav_heading %}MENU{% endblock %}</li>
+
+ {% if user.groups.all.0.name == "admin" %}
+
+ <div style="height: 500px; overflow: auto;">
+
+
+    <li>
+        <a href="{% url 'sisnlab:dashboard' %}">
+            <i class="fa fa-user"></i> <span>DASHBOARD</span>
+        </a>
+    </li>
+
+
+<li>
+    <a href="{% url 'sisnlab:listar_salas' %}">
+        <i class="fa fa-user"></i> <span>Salas</span>
+    </a>
+</li>
+
+
+<li>
+    <a href="{% url 'sisnlab:listar_tombos' %}">
+        <i class="fa fa-user"></i> <span>Tombos</span>
+    </a>
+</li>
+
+<li>
+    <a href="{% url 'sisnlab:listar_armarios' %}">
+        <i class="fa fa-user"></i> <span>Armarios</span>
+    </a>
+</li>
+
+<li>
+    <a href="{% url 'sisnlab:listar_estantes' %}">
+        <i class="fa fa-user"></i> <span>Estantes</span>
+    </a>
+</li>
+
+<li>
+    <a href="{% url 'sisnlab:listar_bancadas' %}">
+        <i class="fa fa-user"></i> <span>Bancadas</span>
+    </a>
+</li>
+
+<li>
+    <a href="{% url 'sisnlab:listar_prateleiras' %}">
+        <i class="fa fa-user"></i> <span>Prateleiras</span>
+    </a>
+</li>
+
+<li>
+    <a href="{% url 'sisnlab:listar_gavetas' %}">
+        <i class="fa fa-user"></i> <span>Gavetas</span>
+    </a>
+</li>
+
+
+<li>
+    <a href="{% url 'sisnlab:listar_marcas' %}">
+        <i class="fa fa-user"></i> <span>Marcas</span>
+    </a>
+</li>
+
+
+<li>
+    <a href="{% url 'sisnlab:listar_unidades' %}">
+        <i class="fa fa-user"></i> <span>Unidades</span>
+    </a>
+</li>
+
+
+<li>
+    <a href="{% url 'sisnlab:listar_equipamentos' %}">
+        <i class="fa fa-user"></i> <span>Equipamentos</span>
+    </a>
+</li>
+
+<li>
+    <a href="{% url 'sisnlab:listar_reagentes' %}">
+        <i class="fa fa-user"></i> <span>Produtos</span>
+    </a>
+</li>
+
+<li>
+    <a href="{% url 'sisnlab:listar_solucoes' %}">
+        <i class="fa fa-user"></i> <span>Cadastro de Soluções</span>
+    </a>
+</li>
+
+
+
+<li>
+    <a href="{% url 'sisnlab:listar_pedidosolucoes' %}">
+        <i class="fa fa-user"></i> <span>Fabricação de Solução</span>
+    </a>
+</li>
+
+<li>
+    <a href="{% url 'sisnlab:listar_fornecedores' %}">
+        <i class="fa fa-user"></i> <span>Fornecedor</span>
+    </a>
+</li>
+
+<li>
+    <a href="{% url 'sisnlab:listar_entradas' %}">
+        <i class="fa fa-user"></i> <span>Entradas</span>
+    </a>
+</li>
+
+<li>
+    <a href="{% url 'sisnlab:listar_destinatarios' %}">
+        <i class="fa fa-user"></i> <span>Destinatário da Saida</span>
+    </a>
+</li>
+
+<li>
+    <a href="{% url 'sisnlab:listar_saidas' %}">
+        <i class="fa fa-user"></i> <span>Saidas </span>
+    </a>
+</li>
+
+
+<li>
+    <a href="{% url 'sisnlab:listar_aulapraticas' %}">
+        <i class="fa fa-user"></i> <span>Aula Prática </span>
+    </a>
+</li>
+
+<li>
+    <a href="{% url 'sisnlab:logout_user' %}">
+        <i class="fa fa-user"></i> <span>Sair </span>
+    </a>
+</li>
+
+
+</div>
+
+{% else %}
+
+
+<li>
+    <a href="{% url 'sisnlab:listar_aulapraticas' %}">
+        <i class="fa fa-user"></i> <span>Aula Prática </span>
+    </a>
+
+    <li>
+        <a href="{% url 'sisnlab:logout_user' %}">
+            <i class="fa fa-user"></i> <span>Sair </span>
+        </a>
+    </li>
+</li>
+
+
+
+
+{% endif %}
+
+
+{% endblock nav_links %}
+

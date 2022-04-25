@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro DE SOLUÇÃO
+{% endblock title %}
+
+{% block content %}
+<h4><strong>CADASTRAR DE SOLUÇÃO</strong></h4>
+
+<form method="post" enctype="multipart/form-data" id="pedidosolucaoForm" data-armarios-url="{% url 'sisnlab:ajax_load_armarios_psolucao' %}"
+data-estantes-url="{% url 'sisnlab:ajax_load_estantes_psolucao' %}" data-bancadas-url="{% url 'sisnlab:ajax_load_bancadas_psolucao' %}" 
+data-prateleiras_arm-url="{% url 'sisnlab:ajax_load_prateleiras_arm_psolucao' %}" data-prateleiras_est-url="{% url 'sisnlab:ajax_load_prateleiras_est_psolucao' %}"
+data-prateleiras_ban-url="{% url 'sisnlab:ajax_load_prateleiras_ban_psolucao' %}" data-gavetas_arm-url="{% url 'sisnlab:ajax_load_gavetas_arm_psolucao' %}" 
+data-gavetas_est-url="{% url 'sisnlab:ajax_load_gavetas_est_psolucao' %}" data-gavetas_ban-url="{% url 'sisnlab:ajax_load_gavetas_ban_psolucao' %}">
+    {% csrf_token %}
+    <div class="form-group">
+     
+    <label>Usuario : </label>
+   {{ user.get_username }}   
+        
+    </div>
+
+    <div class="form-group">
+        {{ form_pedidosolucao.nome.errors }}
+        <label>Nome : </label>
+        {{ form_pedidosolucao.nome|addclass:'form-control' }}
+    </div>
+ 
+    <div class="form-group">
+        {{ form_pedidosolucao.concentracao.errors }}
+        <label>Concentração : </label>
+        {{ form_pedidosolucao.concentracao|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_pedidosolucao.data_producao.errors }}
+        <label>Data de Produção : </label>
+        {{ form_pedidosolucao.data_producao|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_pedidosolucao.unidade.errors }}
+        <label>Unidade : </label>
+        {{ form_pedidosolucao.unidade|addclass:'form-control' }}
+    </div>  
+
+    <div class="form-group">
+        {{ form_pedidosolucao.quantidade.errors }}
+        <label>Quantidade : </label>
+        {{ form_pedidosolucao.quantidade|addclass:'form-control' }}
+    </div>
+    
+    <div class="form-group">
+        {{ form_pedidosolucao.status.errors }}
+        <label>Status : </label>
+        {{ form_pedidosolucao.status|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_pedidosolucao.sala.errors }}
+        <label>Sala : </label>
+        {{ form_pedidosolucao.sala|addclass:'form-control' }}
+    </div>
+  
+    <div class="form-group">
+        <label for="selectCidade">Selecione o Local:</label>
+        <select id='select' name='select'>
+            <option value="">Selecione</option>
+            <option value="Armario1">Armario</option>
+            <option value="Estante2">Estante</option>
+            <option value="Bancada3">Bancada</option>
+        </select>
+    </div>
+    
+        <div class="card bg-light pb-4" style="border-radius: 25px;">      
+            <div class="col-xs-4">
+                <div id='pai'>
+                    <div id='Armario1'>
+                        {{ form_pedidosolucao.armario.errors }}
+                        <label>Armario: </label>
+                        {{ form_pedidosolucao.armario|addclass:'form-control' }}
+                    </div>
+
+                    <div id='Estante2'>
+                        {{ form_pedidosolucao.estante.errors }}
+                        <label>Estante : </label>
+                        {{ form_pedidosolucao.estante|addclass:'form-control' }}
+                    </div>
+                    
+
+                    <div id='Bancada3'>
+                        {{ form_pedidosolucao.bancada.errors }}
+                        <label>Bancada : </label>
+                        {{ form_pedidosolucao.bancada|addclass:'form-control' }}
+                    </div>
+                </div>
+            </div>
+        </div>      
+    
+
+            <div class="row">
+                <div class="col-xs-4 local">
+
+            <div class="form-group">
+                {{ form_pedidosolucao.prateleira.errors }}
+                <label>Prateleira : </label>
+                {{ form_pedidosolucao.prateleira|addclass:'form-control' }}
+            </div>    
+            
+            <div class="form-group">
+                {{ form_pedidosolucao.gaveta.errors }}
+                <label>Gaveta : </label>
+                {{ form_pedidosolucao.gaveta|addclass:'form-control' }}
+            </div>  
+        </div>  
+    </div>
+
+    <div class="form-group">
+        {{ form_pedidosolucao.obs.errors }}
+        <label>Obs: </label>
+        {{ form_pedidosolucao.obs|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+</form>
+{% endblock content %}
+
+
+{% block javascript %}
+   
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'nlab/js/jsdiv_solucao.js' %}"></script>
+<script src="{% static 'nlab/js/selecione_solucao.js' %}"></script>
+<link rel="stylesheet" href="{% static 'nlab/css/style.css' %}" >
+<script src="Javascript.js"></script>
+
+<script src="{% static 'nlab/js/jslistaarmario_psolucao.js' %}"></script>
+<script src="{% static 'nlab/js/jslistaestante_psolucao.js' %}"></script>
+<script src="{% static 'nlab/js/jslistabancada_psolucao.js' %}"></script>
+
+<script src="{% static 'nlab/js/jslistaprateleira_arm_psolucao.js' %}"></script>
+<script src="{% static 'nlab/js/jslistagaveta_arm_psolucao.js' %}"></script>
+
+<script src="{% static 'nlab/js/jslistaprateleira_est_psolucao.js' %}"></script>
+<script src="{% static 'nlab/js/jslistagaveta_est_psolucao.js' %}"></script>
+
+<script src="{% static 'nlab/js/jslistaprateleira_ban_psolucao.js' %}"></script>
+<script src="{% static 'nlab/js/jslistagaveta_ban_psolucao.js' %}"></script>
+
+
+
+
+
+
+{% endblock javascript %}

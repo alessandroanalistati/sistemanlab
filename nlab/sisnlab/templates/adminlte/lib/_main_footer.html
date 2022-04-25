@@ -1,0 +1,16 @@
+{% extends 'adminlte/lib/_main_footer.html' %}
+
+ {% block footer_right %}
+            <b>SIS-NLAB Version :</b> {% block version %}Em contrução{% endblock %}
+        {% endblock %}
+      
+    {% block footer_left %}
+    {% block legal %}
+    <strong>Instituto Federal Baiano &copy; {% now "Y" %}{% if not site %}.{% endif %}
+        {% if site %}
+            <a href="http://{{ nlabsite.domain }}">{{ site.name }}</a>
+        {% endif %}
+    </strong> Campus Itapetinga.
+    
+    {% endblock %}
+    {% endblock %}

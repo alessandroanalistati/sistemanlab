@@ -1,0 +1,55 @@
+<div class="form-group">
+      
+    <label for="data">Data e hora do Inicio da Aula : </label>
+        <input type="date" id="data" name="data_inicio">
+    <br>
+    
+    <label for="hora">Data e hora do Inicio da Aula : </label>
+    <input type="time" id="hora" name="data_inicio">
+
+ 
+</div>
+
+
+
+<div class="form-group">
+    {{ form_solucao.quantidade.errors }}
+    <label>Quantidade : </label>
+    {{ form_solucao.quantidade|addclass:'form-control' }}
+</div>
+
+<div class="form-group">
+    {{ form_solucao.sala.errors }}
+    <label>Sala : </label>
+    {{ form_solucao.sala|addclass:'form-control' }}
+</div>
+
+<div class="form-group">
+    {{ form_solucao.armario.errors }}
+    <label>Armario: </label>
+    {{ form_solucao.armario|addclass:'form-control' }}
+</div>
+
+<div class="form-group">
+    {{ form_solucao.bancada.errors }}
+    <label>Bancada : </label>
+    {{ form_solucao.bancada|addclass:'form-control' }}
+</div>
+
+<div class="form-group">
+    {{ form_solucao.estante.errors }}
+    <label>Estante : </label>
+    {{ form_solucao.estante|addclass:'form-control' }}
+</div>
+
+<div class="form-group">
+    {{ form_solucao.prateleira.errors }}
+    <label>Prateleira : </label>
+    {{ form_solucao.prateleira|addclass:'form-control' }}
+</div>
+
+<div class="form-group">
+    {{ form_solucao.gaveta.errors }}
+    <label>Gaveta : </label>
+    {{ form_solucao.gaveta|addclass:'form-control' }}
+</div>

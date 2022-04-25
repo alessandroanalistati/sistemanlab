@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de REAGENTE
+{% endblock title %}
+
+{{% block content %}
+<h4><strong>DADOS DO PRODUTO </strong></h4>
+<div class="card">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Usuario: {{reagente.usuario}}</h5>
+        <h5 class="card-title">Nome: {{reagente.nome}}</h5>
+        <h5 class="card-title">Formúla Química : {{reagente.formula_q}}</h5>
+        <h5 class="card-title">Grau de Pureza : {{reagente.grau_p}}</h5>
+        <h5 class="card-title">Unidade: {{reagente.unidade|default_if_none:"--"}}}}</h5>
+        <h5 class="card-title">Marca: {{reagente.marca|default_if_none:"--"}}}}</h5>
+        <h5 class="card-title">Quantidade : {{reagente.quantidade}}</h5>
+        <h5 class="card-title">Data de Validade : {{reagente.data_validade}}</h5>
+        <h5 class="card-title">Controle da PF / Exercíto: {{reagente.controle_pfex|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Ficha Técnica: {{reagente.ficha_tec}}</h5>
+        <h5 class="card-title">Massa Molecular : {{reagente.massamolecular|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Dencidade : {{reagente.densidade|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Disponibilidade : {{reagente.disponibilidade}}</h5>
+        <h5 class="card-title">Sala: {{reagente.sala|default_if_none:"--"}}}}</h5>
+        <h5 class="card-title">Armario: {{reagente.armario|default_if_none:"--"}}}}</h5>
+        <h5 class="card-title">Bancada: {{reagente.bancada|default_if_none:"--"}}}}</h5>
+        <h5 class="card-title">Estante: {{reagente.estante|default_if_none:"--"}}}}</h5>
+        <h5 class="card-title">Prateleira: {{reagente.prateleira|default_if_none:"--"}}}}</h5>
+        <h5 class="card-title">Gaveta: {{reagente.gaveta|default_if_none:"--"}}}}</h5>
+        <h5 class="card-title">Observações: {{reagente.obs}}</h5>
+        <h5 class="card-title">Foto : <img src="{{reagente.foto.url}}" alt="Norway" style="width:25%"> </h5>
+    </div>
+</div>
+
+{% endblock content %}

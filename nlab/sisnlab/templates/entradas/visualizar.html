@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+{{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h3><strong> Entrada : {{entrada.id}} </strong></h3>
+    </div>
+    
+    <div class="card-body">         
+            <h5 class="card-title"><strong>Fiscal : </strong> {{entrada.nf}}</h5>  
+            <h5 class="card-title"><strong>Fornecedor:</strong> {{entrada.fornecedor}}</h5>    
+            <h5 class="card-title"><strong>Concentração :</strong> {{entrada.concentracao|default_if_none:"--" }}</h5>      
+            <h5 class="card-title"><strong>Data de Cadastro :</strong> {{entrada.data_cadastro}}</h5>      
+            <h5 class="card-title"><strong>Nota Fiscal: </strong><a href="{{ entrada.nf_foto.url }}" target="_blank" class="btn btn-success btn-download" >NF de Entrada</a></h5>                    
+            <h5 class="card-title"><strong>Observações: </strong>{{entrada.obs}}</h5>          
+      
+
+        <h3 class="card-title">Itens</h3>
+
+        <div class="table-responsive" style="overflow: auto; width: 1080px">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Reagentes</th>
+                        <th>Unidade</th>
+                        <th>Quantidade</th>
+                    </tr>
+        
+                </thead>
+                <tbody>
+                    {% for i in itensentrada %}
+                    <tr>
+                        <td><a href="#">{{i.reagente}}</a></td>
+                        <td><a href="#">{{i.unidade}}</a></td>
+                        <td><a href="#">{{i.quantidade}}</a></td>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <form method="post">
+        </form>
+        </div>
+        </div>
+      
+            <form method="post">
+                {% csrf_token %}
+             <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>            
+        </form>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

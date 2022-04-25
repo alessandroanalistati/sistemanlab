@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de tombos
+{% endblock title %}
+{% block content %}
+ <h4><strong>LISTA DE TOMBOS</strong></h4>
+ <table class="table table-striped">   
+    <thead>
+    <tr>
+        <th>Usuário</th>
+        <th>Numero</th>
+        <th>Descrição</th>
+        <th>Ações</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    {% for i in tombos %}
+    <tr>
+        <td><a href="{% url 'sisnlab:listar_sala_id' i.id %}">{{i.usuario}}</a></td>
+        <td><a href="{% url 'sisnlab:listar_tombo_id' i.id %}">{{i.numero}}</a></td>
+        <td><a href="{% url 'sisnlab:listar_tombo_id' i.id %}">{{i.descricao}}</a></td>
+
+        <td>
+            <a href="{% url 'sisnlab:editar_tombo' i.id %}" button class="btn btn-success btn-sm">Editar</a>
+            <a href="{% url 'sisnlab:remover_tombo' i.id %}" button class="btn btn-danger btn-sm">Remover</button> </a>
+
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'sisnlab:cadastrar_tombo' %}">
+    <button class="btn btn-primary ">Cadastrar</button>
+</a>
+{% endblock content %}

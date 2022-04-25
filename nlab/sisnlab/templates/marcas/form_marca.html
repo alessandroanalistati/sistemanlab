@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de Marca
+{% endblock title %}
+
+{% block content %}
+<h4><strong>CADASTRAR MARCA</strong></h4>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form_marca.nome.errors }}
+        <label>Nome : </label>
+        {{ form_marca.nome|addclass:'form-control' }}
+    </div>    
+
+    <div class="form-group">
+        {{ form_marca.obs.errors }}
+        <label>Obs: </label>
+        {{ form_marca.obs|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+</form>
+
+{% endblock content %}

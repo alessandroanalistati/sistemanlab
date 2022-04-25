@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de Equipamento
+{% endblock title %}
+
+{% block content %}
+<h4><strong>CADASTRAR EQUIPAMENTO</strong></h4>
+<form method="post" enctype="multipart/form-data" id="equipamentosForm" data-armarios-url="{% url 'sisnlab:ajax_load_armarios' %}"
+data-estantes-url="{% url 'sisnlab:ajax_load_estantes' %}" data-bancadas-url="{% url 'sisnlab:ajax_load_bancadas' %}" 
+data-prateleiras_arm-url="{% url 'sisnlab:ajax_load_prateleiras_arm' %}" data-prateleiras_est-url="{% url 'sisnlab:ajax_load_prateleiras_est' %}"
+data-prateleiras_ban-url="{% url 'sisnlab:ajax_load_prateleiras_ban' %}" data-gavetas_arm-url="{% url 'sisnlab:ajax_load_gavetas_arm' %}" 
+data-gavetas_est-url="{% url 'sisnlab:ajax_load_gavetas_est' %}" data-gavetas_ban-url="{% url 'sisnlab:ajax_load_gavetas_ban' %}">
+
+    {% csrf_token %}
+
+    <div class="form-group">
+        {{ form_equipamento.nome.errors }}
+        <label>Nome : </label>
+        {{ form_equipamento.nome|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_equipamento.tombo.errors }}
+        <label>Tombo: </label>
+        {{ form_equipamento.tombo|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_equipamento.marca.errors }}
+        <label>Marca : </label>
+        {{ form_equipamento.marca|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_equipamento.data_compra.errors }}
+        <label>Data da Compra : </label>
+        {{ form_equipamento.data_compra|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_equipamento.data_ultim_m.errors }}
+        <label>Data da Ultima Compra : </label>
+        {{ form_equipamento.data_ultim_m|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_equipamento.origem.errors }}
+        <label>Origem : </label>
+        {{ form_equipamento.origem|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_equipamento.ficha_tec.errors }}
+        <label>Ficha Técnica : </label>
+        {{ form_equipamento.ficha_tec|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_equipamento.especficacao_t.errors }}
+        <label>Especificação Técnica : </label>
+        {{ form_equipamento.especficacao_t|addclass:'form-control' }}
+    </div>
+
+   
+
+    <div class="form-group">
+        {{ form_equipamento.calibragem.errors }}
+        <label>Calibragem : </label>
+        {{ form_equipamento.calibragem|addclass:'form-control' }}
+    </div>       
+   
+
+    <div class="form-group">
+        {{ form_equipamento.sala.errors }}
+        <label>Sala : </label>
+        {{ form_equipamento.sala|addclass:'form-control' }}
+    </div>
+  
+    <div class="form-group">
+        <label for="selectCidade">Selecione o Local:</label>
+        <select id='select' name='select'>
+            <option value="">Selecione</option>
+            <option value="Armario1">Armario</option>
+            <option value="Estante2">Estante</option>
+            <option value="Bancada3">Bancada</option>
+        </select>
+    </div>
+    
+        <div class="card bg-light pb-4" style="border-radius: 25px;">      
+            <div class="col-xs-4">
+                <div id='pai'>
+                    <div id='Armario1'>
+                        {{ form_equipamento.armario.errors }}
+                        <label>Armario: </label>
+                        {{ form_equipamento.armario|addclass:'form-control' }}
+                    </div>
+
+                    <div id='Estante2'>
+                        {{ form_equipamento.estante.errors }}
+                        <label>Estante : </label>
+                        {{ form_equipamento.estante|addclass:'form-control' }}
+                    </div>
+                    
+
+                    <div id='Bancada3'>
+                        {{ form_equipamento.bancada.errors }}
+                        <label>Bancada : </label>
+                        {{ form_equipamento.bancada|addclass:'form-control' }}
+                    </div>
+                </div>
+            </div>
+        </div>      
+    
+
+            <div class="row">
+                <div class="col-xs-4 local">
+
+            <div class="form-group">
+                {{ form_equipamento.prateleira.errors }}
+                <label>Prateleira : </label>
+                {{ form_equipamento.prateleira|addclass:'form-control' }}
+            </div>    
+            
+            <div class="form-group">
+                {{ form_equipamento.gaveta.errors }}
+                <label>Gaveta : </label>
+                {{ form_equipamento.gaveta|addclass:'form-control' }}
+            </div>  
+        </div>  
+    </div>
+
+<div class="row">
+    <div class="col-xs-12 local">
+
+    <div class="form-group">
+        {{ form_equipamento.obs.errors }}
+        <label>Obs: </label>
+        {{ form_equipamento.obs|addclass:'form-control' }}
+    </div>
+
+    
+    <div class="form-group">
+        {{ form_equipamento.foto.errors }}
+        <label>Foto : </label>
+        {{ form_equipamento.foto|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+    </div>
+</form>
+
+{% endblock content %}
+
+{% block javascript %}
+   
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'nlab/js/jsdiv.js' %}"></script>
+<script src="{% static 'nlab/js/selecione.js' %}"></script>
+<link rel="stylesheet" href="{% static 'nlab/css/style.css' %}" >
+<script src="Javascript.js"></script>
+
+<script src="{% static 'nlab/js/jslistaarmario.js' %}"></script>
+<script src="{% static 'nlab/js/jslistaestante.js' %}"></script>
+<script src="{% static 'nlab/js/jslistabancada.js' %}"></script>
+
+<script src="{% static 'nlab/js/jslistaprateleira_arm.js' %}"></script>
+<script src="{% static 'nlab/js/jslistagaveta_arm.js' %}"></script>
+
+<script src="{% static 'nlab/js/jslistaprateleira_est.js' %}"></script>
+<script src="{% static 'nlab/js/jslistagaveta_est.js' %}"></script>
+
+<script src="{% static 'nlab/js/jslistaprateleira_ban.js' %}"></script>
+<script src="{% static 'nlab/js/jslistagaveta_ban.js' %}"></script>
+
+
+
+
+{% endblock javascript %}
+

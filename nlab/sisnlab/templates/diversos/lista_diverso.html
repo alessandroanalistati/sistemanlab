@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de DIVERSO
+{% endblock title %}
+
+{{% block content %}
+ <h4><strong>DADOS DO DIVERSO</strong></h4>
+<div class="card">
+    <div class="card-header">       
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">usuario: {{diverso.usuario}}</h5>   
+        <h5 class="card-title">Nome: {{diverso.nome}}</h5>      
+        <h5 class="card-title">Marca: {{diverso.marca|default_if_none:"--"}}</h5>   
+        <h5 class="card-title">Unidade: {{diverso.unidade|default_if_none:"--"}}</h5>      
+        <h5 class="card-title">Quantidade : {{diverso.quantidade}}</h5>           
+        <h5 class="card-title">Ficha Técnica: {{diverso.ficha_tec}}</h5>
+        <h5 class="card-title">Sala: {{diverso.sala|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Armario: {{diverso.armario|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Bancada: {{diverso.bancada|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Estante: {{diverso.estante|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Prateleira: {{diverso.prateleira|default_if_none:"--"}}</h5>
+        <h5 class="card-title">Gaveta: {{diverso.gaveta|default_if_none:"--"}}</h5>        
+        <h5 class="card-title">Observações: {{diverso.obs}}</h5>
+        <h5 class="card-title">Foto : <img src="{{diverso.foto.url}}" alt="Norway" style="width:25%"> </h5>  
+
+     
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+{{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h4><strong> DADOS DO EQUIPAMENTO</strong></h4>
+    </div>
+    
+    <div class="card-body">
+        <h5 class="card-title"><strong>Usuário:</strong> {{equipamento.usuario}}</h5>        
+        <h4 class="card-title"><strong>Nome :</strong> {{equipamento.nome}}</h4>        
+        <h5 class="card-title"><strong>Tombo :</strong> {{equipamento.tombo}}</h5>
+        <h5 class="card-title"><strong>Marca :</strong> {{equipamento.marca|default_if_none:"--" }}</h5>
+        <h5 class="card-title"><strong>Data da Compra:</strong> {{equipamento.data_compra}}</h5>      
+        <h5 class="card-title"><strong>Data da Ultima Manutenção :</strong> {{equipamento.data_ultim_m}}</h5>
+        <h5 class="card-title"><strong>Origem : </strong><a href="{{ equipamento.origem.url }}" target="_blank" class="btn btn-success btn-download" >Origem</a></h5>
+        <h5 class="card-title"><strong>Ficha Técnica : </strong><a href="{{ equipamento.ficha_tec.url }}" target="_blank" class="btn btn-success btn-download" >Ficha Técnica</a></h5>
+        <h5 class="card-title"><strong>Especficação técnica :</strong> {{equipamento.especficacao_t}}</h5>
+        <h5 class="card-title"><strong>Calibragem : </strong>{{equipamento.calibragem}}</h5>
+        <h5 class="card-title"><strong>Sala :</strong> {{equipamento.sala|default_if_none:"--" }}</h5>
+        <h5 class="card-title"><strong>Armario :</strong> {{equipamento.armario|default_if_none:"--" }}</h5>
+        <h5 class="card-title"><strong>Bancada :</strong> {{equipamento.bancada|default_if_none:"--" }}</h5>
+        <h5 class="card-title"><strong>Estante :</strong> {{equipamento.estante|default_if_none:"--" }}</h5>
+        <h5 class="card-title"><strong>Prateleira :</strong> {{equipamento.prateleira|default_if_none:"--" }}</h5>
+        <h5 class="card-title"><strong>Gaveta :</strong> {{equipamento.gaveta|default_if_none:"--" }}</h5>
+        <h5 class="card-title"><strong>Observações :</strong> {{equipamento.obs|default_if_none:"--" }}</h5>
+        <h5 class="card-title"><strong>Foto :</strong>  <img src="{{equipamento.foto.url}}" alt="Norway" style="width:30%">   <a href="{{ equipamento.foto.url }}" target="_blank" class="btn btn-success btn-download" >Imagem</a></h5>
+      
+            <form method="post">
+            {% csrf_token %}
+             <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>            
+        </form>
+
+
+    </div>
+</div>
+
+{% endblock content %}

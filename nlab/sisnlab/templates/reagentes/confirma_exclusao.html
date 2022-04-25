@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+{{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h4><strong> Tem certeza que deseja remover o Produto abaixo?</strong></h4>
+    </div>
+    
+    <div class="card-body">
+        <h5 class="card-title"><strong>Usuario:</strong> {{reagente.usuario}}</h5>      
+        <h4 class="card-title"><strong>Nome: </strong>{{reagente.nome}}</h4>      
+        <h5 class="card-title"><strong>Formúla Química :</strong> {{reagente.formula_q}}</h5>      
+        <h5 class="card-title"><strong>Grau de Pureza :</strong> {{reagente.grau_p}}</h5>      
+        <h5 class="card-title"><strong>Unidade:</strong> {{reagente.unidade|default_if_none:"--"}}</h5>   
+        <h5 class="card-title"><strong>Marca: </strong>{{reagente.marca|default_if_none:"--"}}</h5>
+        <h4 class="card-title"><strong>Quantidade :</strong> {{reagente.quantidade}}</h4>
+        <h5 class="card-title"><strong>Data de Validade :</strong> {{reagente.data_validade}}</h5>        
+        <h5 class="card-title"><strong>Controle da PF / Exercíto:</strong> {{reagente.controle_pfex|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Ficha Técnica :</strong> <a href="{{ reagente.ficha_tec.url }}" target="_blank" class="btn btn-success btn-download" >Ficha Técnica</a></h5>
+        <h5 class="card-title"><strong>Massa Molecular :</strong> {{reagente.massamolecular|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Dencidade :</strong> {{reagente.densidade|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Disponibilidade :</strong> {{reagente.disponibilidade}}</h5>
+        <h5 class="card-title"><strong>Sala: </strong>{{reagente.sala|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Armario: </strong>{{reagente.armario|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Bancada: </strong>{{reagente.bancada|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Estante:</strong> {{reagente.estante|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Prateleira: </strong>{{reagente.prateleira|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Gaveta:</strong> {{reagente.gaveta|default_if_none:"--"}}</h5>
+        <h5 class="card-title"><strong>Observações:</strong> {{reagente.obs}}</h5>
+        <h5 class="card-title"><strong>Foto :</strong> <img src="{{reagente.foto.url
+            <form method="post">
+            {% csrf_token %}
+             <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>
+            <button class="btn btn-danger" type="submit">Remover</button>
+        </form>
+
+
+    </div>
+</div>
+
+{% endblock content %}

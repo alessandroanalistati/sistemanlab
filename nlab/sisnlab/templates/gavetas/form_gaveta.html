@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de Gaveta
+{% endblock title %}
+
+{% block content %}
+<h4><strong>CADASTRAR GAVETA</strong></h4>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form_gaveta.nome.errors }}
+        <label>Nome : </label>
+        {{ form_gaveta.nome|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_gaveta.sigla.errors }}
+        <label>Sigla: </label>
+        {{ form_gaveta.sigla|addclass:'form-control' }}
+    </div>    
+
+    <div class="form-group">
+        {{ form_gaveta.armario.errors }}
+        <label>Armario: </label>
+        {{ form_gaveta.armario|addclass:'form-control' }}
+    </div>
+
+
+    <div class="form-group">
+        {{ form_gaveta.estante.errors }}
+        <label>Estante : </label>
+        {{ form_gaveta.estante|addclass:'form-control' }}
+    </div>
+
+    
+    <div class="form-group">
+        {{ form_gaveta.bancada.errors }}
+        <label>Bancada : </label>
+        {{ form_gaveta.bancada|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_gaveta.obs.errors }}
+        <label>Obs: </label>
+        {{ form_gaveta.obs|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+</form>
+{% endblock content %}

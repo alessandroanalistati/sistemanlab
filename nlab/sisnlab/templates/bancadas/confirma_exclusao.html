@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+{{% block content %}
+<div class="card">
+    <div class="card-header">
+         <h4><strong> Tem certeza que deseja remover a BANCADA abaixo?</strong></h4>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Usuário: {{armario.usuario}}</h5>
+        <h5 class="card-title">Nome: {{bancada.nome}}</h5>
+        <h5 class="card-title">Sibla: {{bancada.sibla}}</h5>
+        <h5 class="card-title">Tombo: {{bancada.tombo}}</h5>
+        <h5 class="card-title">Sala: {{bancada.sala}}</h5>
+        <h5 class="card-title">Observações: {{bancada.obs}}</h5>
+            <form method="post">
+            {% csrf_token %}
+             <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>
+            <button class="btn btn-danger" type="submit">Remover</button>
+        </form>
+
+
+    </div>
+</div>
+
+{% endblock content %}

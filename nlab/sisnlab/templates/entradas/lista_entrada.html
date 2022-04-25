@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de SOLUÇÃO
+{% endblock title %}
+
+{{% block content %}
+ <h4><strong>DADOS da Entrada</strong></h4>
+<div class="card">
+    <div class="card-header">       
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Número: {{entrada.id}}</h5>  
+            <h5 class="card-title">Nota Fiscal : {{entrada.nf}}</h5>  
+            <h5 class="card-title">Fornecedor: {{entrada.fornecedor}}</h5>    
+            <h5 class="card-title">Concentração : {{entrada.concentracao}}</h5>      
+            <h5 class="card-title">Data de Cadastro : {{entrada.data_cadastro}}</h5>      
+            <h5 class="card-title">Imagem da NF: {{entrada.nf_foto}}</h5>           
+            <h5 class="card-title">Observações: {{entrada.obs}}</h5>              
+            
+    </div>
+</div>
+
+{% endblock content %}

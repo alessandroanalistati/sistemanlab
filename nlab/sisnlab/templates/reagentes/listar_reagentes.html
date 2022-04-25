@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de REAGENTES
+{% endblock title %}
+{% block content %}
+<h4><strong>LISTA DE PRODUTOS</strong></h4>
+<div style="overflow: auto; width: 1080px">
+    <table class="table table-striped">
+        <thead>
+
+            <a href="{% url 'sisnlab:cadastrar_reagente' %}">
+                <button class="btn btn-primary ">Cadastrar</button>
+            </a>
+            <tr>
+                <th>Usuário</th>
+                <th>Nome</th>
+                <th>Fórmula Químicae</th>
+                <th>Grau de Pureza</th>
+                <th>Unidade</th>
+                <th>Marca</th>
+                <th>Quantidade</th>
+                <th>Data de Validade</th>
+                <th>Controle da PF / Exército</th>
+                <th>Ficha Técnica</th>
+                <th>Massa Molecular</th>
+                <th>Densidade</th>
+                <th>Disponibilidade</th>
+                <th>Sala</th>
+                <th>Armario</th>
+                <th>Bancada</th>
+                <th>Estante</th>
+                <th>Prateleira</th>
+                <th>Gaveta</th>
+                <th>Observação</th>
+                <th>Ações</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            {% for i in reagentes %}
+            <tr>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.usuario}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.nome}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.formula_q}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.grau_p}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.unidade|default_if_none:"--"}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.marca|default_if_none:"--"}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.quantidade}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.data_validade}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.controle_pfex|default_if_none:"--"}}</a>
+                </td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.ficha_tec}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.massamolecular|default_if_none:"--"}}</a>
+                </td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.densidade|default_if_none:"--"}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.disponibilidade}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.sala|default_if_none:"--"}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.armario|default_if_none:"--"}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.bancada|default_if_none:"--"}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.estante|default_if_none:"--"}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.prateleira|default_if_none:"--"}}</a>
+                </td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.gaveta|default_if_none:"--"}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.obs}}</a></td>
+                <td><a href="{% url 'sisnlab:visualizar_reagente' i.id %}">{{i.foto}}</a></td>
+
+                <td>
+                    <a href="{% url 'sisnlab:editar_reagente' i.id %}" button class="btn btn-success btn-sm">Editar</a>
+                    <a href="{% url 'sisnlab:remover_reagente' i.id %}" button
+                        class="btn btn-danger btn-sm">Remover</button> </a>
+                    <a href="{% url 'sisnlab:visualizar_reagente' i.id %}" button
+                        class="btn btn-info btn-sm">Visualizar</button> </a>
+
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

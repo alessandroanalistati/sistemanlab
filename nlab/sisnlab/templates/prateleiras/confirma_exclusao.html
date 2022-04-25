@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+ {% endblock title %}
+
+{{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h4><strong> Tem certeza que deseja remover a PRATELEIRA abaixo?</strong></h4>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Usuário: {{armario.usuario}}</h5>
+        <h5 class="card-title">Nome: {{prateleira.nome}}</h5>
+        <h5 class="card-title">Sibla: {{prateleira.sibla}}</h5> 
+        <h5 class="card-title">Armario: {{prateleira.armario}}</h5>
+        <h5 class="card-title">Bancada: {{prateleira.bancada}}</h5>
+        <h5 class="card-title">Estante: {{prateleira.estante}}</h5>       
+        <h5 class="card-title">Observações: {{prateleira.obs}}</h5>
+            <form method="post">
+            {% csrf_token %}
+             <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>
+            <button class="btn btn-danger" type="submit">Remover</button>
+        </form>
+
+
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+
+Cadastro de Bancada
+
+{% endblock title %}
+
+
+
+{% block content %}
+<h4><strong>CADASTRAR BANCADA</strong></h4>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form_bancada.nome.errors }}
+        <label>Nome : </label>
+        {{ form_bancada.nome|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_bancada.sigla.errors }}
+        <label>Sigla: </label>
+        {{ form_bancada.sigla|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_bancada.tombo.errors }}
+        <label>Tombo: </label>
+        {{ form_bancada.tombo|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_bancada.sala.errors }}
+        <label>Sala : </label>
+        {{ form_bancada.sala|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_bancada.obs.errors }}
+        <label>Obs: </label>
+        {{ form_bancada.obs|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+</form>
+{% endblock content %}

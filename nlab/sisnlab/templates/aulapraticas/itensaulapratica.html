@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+{{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h1><center><strong>Aula Prática</center></strong></h1>
+    </div>
+    
+    <div class="card-body">
+        <h5 class="card-title">Número: {{aulapratica_novo.id}}</h5>  
+        <h5 class="card-title">Nome: {{aulapratica_novo.nome}}</h5>         
+        <h5 class="card-title">sala : {{aulapratica_novo.sala}}</h5>      
+        <h5 class="card-title">Data da Aula : {{aulapratica_novo.data_inicio|date:'d-m-Y'}}</h5>      
+        <h5 class="card-title">Horário Inicial : {{aulapratica.horario_inicio }}</h5>       
+        <h5 class="card-title">Horário Final : {{aulapratica.horario_fim}}</h5>      
+        <h5 class="card-title">Quantidade de Alunos : {{aulapratica_novo.quantalunos}}</h5>         
+        <h5 class="card-title">Observações: {{aulapratica_novo.obs}}</h5>      
+        <h4 class="card-title">Status : {{aulapratica_novo.status}}</h4>      
+
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">  
+
+        <h3 class="card-title"><strong>Inserir itens que serão usados na Prática N.</strong> {{aulapratica_novo.id}} - {{aulapratica_novo.nome}} </h3>  
+
+        <a href="{% url 'sisnlab:produtos_aulapraticas' aulapratica_novo.id %}" button class="btn btn-success btn-sm">Inserir Produtos</a>
+        <a href="{% url 'sisnlab:solucoes_aulapraticas' aulapratica_novo.id %}" button class="btn btn-warning btn-sm">Inserir Solução</a>  
+        <a href="{% url 'sisnlab:equipamentos_aulapraticas' aulapratica_novo.id %}" button class="btn btn-primary btn-sm">Inserir Equipamentos</a> 
+    
+       
+    </div> 
+
+    
+        
+    <hr />
+    <hr />
+ 
+        <div>
+            <a href="{% url 'sisnlab:visualizar_aulapratica_editar' aulapratica_novo.id %}">
+                <button class="btn btn-primary ">Visualizar Aula Prática</button>
+            </a>  
+       
+            <a href="{% url 'sisnlab:editar_aulapratica' aulapratica_novo.id %}">
+                <button type="button" class="btn btn-warning">Editar Aula Prática</button>
+            </a>              
+
+        </div> 
+      
+
+
+</div>
+
+{% endblock content %}

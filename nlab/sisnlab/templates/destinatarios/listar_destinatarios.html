@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de destinatarios
+{% endblock title %}
+{% block content %}
+<h4><strong>LISTA DE DESTINATÁRIO</strong></h4>
+<table class="table table-striped">   
+    <thead>
+    <tr>
+        <th>Usuário</th>
+        <th>Nome</th>
+        <th>CNPJ</th>
+        <th>CPF</th>
+        <th>Data de Cadastro</th>   
+        <th>Endereço</th>        
+        <th>Telefone Fixo</th>        
+        <th>Cel</th>        
+        <th>E-mail</th>        
+        <th>OBS</th>        
+        <th>Ações</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    {% for i in destinatarios %}
+    <tr>
+        <td><a href="{% url 'sisnlab:listar_sala_id' i.id %}">{{i.usuario}}</a></td>
+        <td><a href="{% url 'sisnlab:editar_destinatario' i.id %}">{{i.nome}}</a></td>
+        <td><a href="{% url 'sisnlab:editar_destinatario' i.id %}">{{i.cnpj|default_if_none:"--"}}</a></td>
+        <td><a href="{% url 'sisnlab:editar_destinatario' i.id %}">{{i.cpf|default_if_none:"--"}}</a></td>
+        <td><a href="{% url 'sisnlab:editar_destinatario' i.id %}">{{i.data_cadastro}}</a></td>
+        <td><a href="{% url 'sisnlab:editar_destinatario' i.id %}">{{i.endereco|default_if_none:"--"}}</a></td>
+        <td><a href="{% url 'sisnlab:editar_destinatario' i.id %}">{{i.telefone|default_if_none:"--"}}</a></td>
+        <td><a href="{% url 'sisnlab:editar_destinatario' i.id %}">{{i.cel|default_if_none:"--"}}</a></td>
+        <td><a href="{% url 'sisnlab:editar_destinatario' i.id %}">{{i.email|default_if_none:"--"}}</a></td>
+        <td><a href="{% url 'sisnlab:editar_destinatario' i.id %}">{{i.obs}}</a></td>
+        
+        <td>
+            <a href="{% url 'sisnlab:editar_destinatario' i.id %}" button class="btn btn-success btn-sm">Editar</a>
+            <a href="{% url 'sisnlab:remover_destinatario' i.id %}" button class="btn btn-danger btn-sm">Remover</button> </a>
+            <a href="{% url 'sisnlab:visualizar_destinatario' i.id %}" button class="btn btn-info btn-sm">Visualizar</button> </a>
+
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'sisnlab:cadastrar_destinatario' %}">
+    <button class="btn btn-primary ">Cadastrar</button>
+</a>
+{% endblock content %}

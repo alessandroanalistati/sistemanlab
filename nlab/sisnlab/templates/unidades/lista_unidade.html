@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista das UNIDADE
+{% endblock title %}
+
+{{% block content %}
+ <h4><strong>DADOS DA UNIDADE</strong></h4>
+<div class="card">
+    <div class="card-header">        
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Usuário: {{armario.usuario}}</h5>
+        <h5 class="card-title">Nome: {{unidade.nome}}</h5>               
+        <h5 class="card-title">Observações: {{unidade.obs}}</h5>
+
+    </div>
+</div>
+
+{% endblock content %}

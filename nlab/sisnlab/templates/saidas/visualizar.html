@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+{{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h3><strong> Saida : {{saida.id}} </strong></h3>
+    </div>
+    <div class="table-responsive" style="overflow: auto; width: 1080px">    
+
+    <div class="card-body">         
+            <h4 class="card-title"><strong>Fiscal : </strong> {{saida.nf}}</h4>  
+            <h5 class="card-title"><strong>Destinatario:</strong> {{saida.destinatario}}</h5>    
+            <h5 class="card-title"><strong>Concentração : </strong>{{saida.concentracao}}</h5>      
+            <h5 class="card-title"><strong>Data de Cadastro :</strong> {{saida.data_cadastro}}</h5>      
+            <h5 class="card-title"><strong>Documento de Saída:</strong> </strong><a href="{{ saida.nf_foto.url }}" target="_blank" class="btn btn-success btn-download" >Doc. de Saída</a></h5>                             
+            <h5 class="card-title"><strong>Observações:</strong> {{saida.obs}}</h5>          
+      
+
+        <h3 class="card-title">Itens da Sáida de Protudos</h3>
+
+        <div class="table-responsive" style="overflow: auto; width: 1080px">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Reagentes</th>
+                        <th>Unidade</th>
+                        <th>Quantidade</th>
+                    </tr>
+        
+                </thead>
+                <tbody>
+                    {% for i in itenssaida %}
+                    <tr>
+                        <td><a href="#">{{i.reagente}}</a></td>
+                        <td><a href="#">{{i.unidade}}</a></td>
+                        <td><a href="#">{{i.quantidade}}</a></td>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <form method="post">
+        </form>
+        </div>
+        </div>
+      
+            <form method="post">
+                {% csrf_token %}
+             <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>            
+        </form>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

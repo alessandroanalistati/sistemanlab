@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block title %}
+Cadastro de Prateleira
+{% endblock title %}
+
+{% block content %}
+<h4><strong>CADASTRAR PRATELEIRA</strong></h4>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form_prateleira.nome.errors }}
+        <label>Nome : </label>
+        {{ form_prateleira.nome|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_prateleira.sigla.errors }}
+        <label>Sigla: </label>
+        {{ form_prateleira.sigla|addclass:'form-control' }}
+    </div>   
+
+    <div class="form-group">
+        {{ form_prateleira.armario.errors }}
+        <label>Armario: </label>
+        {{ form_prateleira.armario|addclass:'form-control' }}
+    </div>    
+
+    <div class="form-group">
+        {{ form_prateleira.estante.errors }}
+        <label>Estante : </label>
+        {{ form_prateleira.estante|addclass:'form-control' }}
+    </div> 
+
+    <div class="form-group">
+        {{ form_prateleira.bancada.errors }}
+        <label>Bancada : </label>
+        {{ form_prateleira.bancada|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_prateleira.obs.errors }}
+        <label>Obs: </label>
+        {{ form_prateleira.obs|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+</form>
+{% endblock content %}
